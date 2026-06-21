@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <h1>Backend Connection Test</h1>
+
+    <button id="btn">Check Backend</button>
+
+    <p id="result"></p>
+
+    <script>
+      document.getElementById("btn").onclick = async () => {
+        const response = await fetch(
+          "http://127.0.0.1:3001/api/health"
+        );
+
+        const data = await response.json();
+
+        document.getElementById("result").textContent =
+          data.status;
+      };
+    </script>
+  </body>
+</html>
