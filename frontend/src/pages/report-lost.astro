@@ -6,39 +6,70 @@ import Navbar from "../components/Navbar.astro";
 <Layout>
   <Navbar />
 
-  <div class="max-w-xl mx-auto mt-10">
-    <h1 class="text-3xl font-bold mb-6">
-      Report Lost Item
-    </h1>
+  <div class="min-h-screen bg-gray-100 py-10">
+    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
 
-    <form class="space-y-4">
-      <input
-        type="text"
-        placeholder="Item Name"
-        class="w-full border p-3 rounded"
-      />
+      <h1 class="text-3xl font-bold text-center mb-2">
+        Report Lost Item
+      </h1>
 
-      <textarea
-        placeholder="Description"
-        class="w-full border p-3 rounded"
-      ></textarea>
+      <p class="text-center text-gray-500 mb-8">
+        Help us find your lost item faster
+      </p>
 
-      <input
-        type="text"
-        placeholder="Location Lost"
-        class="w-full border p-3 rounded"
-      />
+      <form class="space-y-5">
 
-      <input
-        type="file"
-        class="w-full"
-      />
+        <div>
+          <label class="block mb-2 font-medium">
+            Item Name
+          </label>
+          <input
+            type="text"
+            placeholder="Wallet, Phone, Laptop..."
+            class="w-full border p-3 rounded-lg"
+          />
+        </div>
 
-      <button
-        class="bg-red-500 text-white px-6 py-2 rounded"
-      >
-        Submit
-      </button>
-    </form>
+        <div>
+          <label class="block mb-2 font-medium">
+            Description
+          </label>
+          <textarea
+            placeholder="Describe your item"
+            rows="4"
+            class="w-full border p-3 rounded-lg"
+          ></textarea>
+        </div>
+
+        <div>
+          <label class="block mb-2 font-medium">
+            Location Lost
+          </label>
+          <input
+            type="text"
+            placeholder="Library, Bus Stop..."
+            class="w-full border p-3 rounded-lg"
+          />
+        </div>
+
+        <div>
+          <label class="block mb-2 font-medium">
+            Upload Image
+          </label>
+          <input
+            type="file"
+            class="w-full border p-3 rounded-lg"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg font-semibold"
+        >
+          Submit Report
+        </button>
+
+      </form>
+    </div>
   </div>
 </Layout>
