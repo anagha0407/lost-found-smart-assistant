@@ -6,19 +6,29 @@ import Navbar from "../components/Navbar.astro";
 <Layout>
   <Navbar />
 
-  <div class="p-8">
-    <h1 class="text-4xl font-bold">
+  <div class="min-h-screen flex flex-col justify-center items-center">
+    <h1 class="text-6xl font-bold">
       Lost & Found Smart Assistant
     </h1>
 
-    <p class="mt-4 text-lg">
-      Find your lost items easily.
+    <p class="text-xl mt-6">
+      AI-powered campus item recovery system
     </p>
 
-    <button
-      class="mt-6 bg-blue-500 text-white px-4 py-2 rounded"
-    >
-      Report Lost Item
-    </button>
+    <div class="mt-10 flex gap-4">
+      <a
+        href="/report-lost"
+        class="bg-red-500 text-white px-6 py-3 rounded-lg"
+      >
+        Report Lost
+      </a>
+
+      <a
+        href="/report-found"
+        class="bg-green-500 text-white px-6 py-3 rounded-lg"
+      >
+        Report Found
+      </a>
+    </div>
   </div>
 </Layout>
