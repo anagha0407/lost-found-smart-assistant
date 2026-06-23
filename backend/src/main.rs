@@ -35,8 +35,11 @@ async fn create_report(
     println!("Received report:");
     println!("{}", report.item_name);
 
+    let report_data = report.into_inner();
+
     let mut reports = data.reports.lock().unwrap();
-    reports.push(report.into_inner());
+    reports.push(report_data.clone());
+
     println!("Total reports: {}", reports.len());
 
     HttpResponse::Ok().json(
@@ -66,6 +69,7 @@ async fn main() -> std::io::Result<()> {
             reports: Mutex::new(Vec::new()),
         }
     );
+
 
     HttpServer::new(move || {
 
