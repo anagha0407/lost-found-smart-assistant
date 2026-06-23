@@ -60,6 +60,7 @@ import Navbar from "../components/Navbar.astro";
             Upload Image
           </label>
           <input
+            id="Image"
             type="file"
             class="w-full border p-3 rounded-lg"
           />
@@ -86,12 +87,14 @@ import Navbar from "../components/Navbar.astro";
     const itemData = {
       item_name: document.getElementById("itemName").value,
       description: document.getElementById("description").value,
-      location: document.getElementById("location").value
+      location: document.getElementById("location").value,
+      date: new Date().toISOString(),
+      report_type: "lost"
     };
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:3001/api/lost-items",
+        "http://127.0.0.1:3001/api/reports",
         {
           method: "POST",
           headers: {
@@ -108,8 +111,8 @@ import Navbar from "../components/Navbar.astro";
       form.reset();
 
     } catch (error) {
-      console.log(error);
-      alert("Failed to submit item");
+      console.error(error);
+      alert("Failed to submit report");
     }
   });
 </script>

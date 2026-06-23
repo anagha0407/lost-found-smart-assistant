@@ -67,6 +67,7 @@ import Navbar from "../components/Navbar.astro";
           </label>
 
           <input
+            id="foundImage"
             type="file"
             class="w-full border p-3 rounded-lg"
           />
@@ -91,56 +92,37 @@ import Navbar from "../components/Navbar.astro";
   const form = document.getElementById("foundForm");
 
   form.addEventListener("submit", async (e) => {
-
     e.preventDefault();
 
-
     const itemData = {
-
-      item_name:
-        document.getElementById("foundItemName").value,
-
-      description:
-        document.getElementById("foundDescription").value,
-
-      location:
-        document.getElementById("foundLocation").value
-
+      item_name: document.getElementById("foundItemName").value,
+      description: document.getElementById("foundDescription").value,
+      location: document.getElementById("foundLocation").value,
+      date: new Date().toISOString(),
+      report_type: "found"
     };
 
-
     try {
-
       const response = await fetch(
-        "http://127.0.0.1:3001/api/found-items",
+        "http://127.0.0.1:3001/api/reports",
         {
           method: "POST",
-
           headers: {
             "Content-Type": "application/json"
           },
-
           body: JSON.stringify(itemData)
         }
       );
 
-
       const data = await response.json();
-
 
       alert(data.message);
 
-
       form.reset();
 
-
-    } catch(error) {
-
-      console.log(error);
-
-      alert("Failed to submit found item");
-
+    } catch (error) {
+      console.error(error);
+      alert("Failed to submit report");
     }
-
   });
 </script>
